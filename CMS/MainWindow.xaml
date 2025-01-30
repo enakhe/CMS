@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CMS"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Criminal Record Management System" Height="450" Width="800">
     <Grid>
-
+        <Button Content="Click Me" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_CLick" />
     </Grid>
 </Window>

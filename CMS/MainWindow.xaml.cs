@@ -20,5 +20,10 @@ namespace CMS
         {
             InitializeComponent();
         }
+
+        private void Button_CLick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Hello, WPF!");
+        }
     }
 }
