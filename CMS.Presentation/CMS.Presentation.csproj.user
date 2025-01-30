@@ -7,6 +7,32 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Forms\Criminal\AddRecordDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\Criminal\CriminalPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\Dashboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\Home\IndexPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Forms\Criminal\AddRecordDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\Criminal\CriminalPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\Dashboard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\Home\IndexPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

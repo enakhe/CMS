@@ -12,6 +12,9 @@ namespace CMS.Infrastructure.Data
         }
 
         public DbSet<Criminal> Criminals { get; set; }
+        public DbSet<CriminalPictures> CriminalPictures { get; set; }
+        public DbSet<CriminalBiometrics> CriminalBiometrics { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

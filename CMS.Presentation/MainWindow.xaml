@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CMS.Presentation"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Login" Height="460" Width="380"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="30">
+        <StackPanel>
+            <TextBlock Text="CMS" HorizontalAlignment="Center" Margin="20" FontSize="50" FontWeight="Bold" />
+            <TextBlock Text="Log In to Your Account" HorizontalAlignment="Center" Margin="20" FontSize="20" FontWeight="Bold" />
+        </StackPanel>
 
-    </Grid>
+        <StackPanel Margin="0,0,0,20">
+            <Label Content="Username:" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBox Name="username" Width="300" Height="30" FontSize="19" Padding="2" />
+        </StackPanel>
+
+        <StackPanel Margin="0,0,0,20">
+            <Label Content="Password:" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBox Name="password" Width="300" Height="30" FontSize="19" Padding="2" />
+        </StackPanel>
+        <Button Content="Login" Width="100" Height="30" Background="DodgerBlue" Foreground="White" BorderThickness="0" Cursor="Hand" Click="Button_Click" />
+    </StackPanel>
 </Window>
