@@ -1,14 +1,25 @@
 ﻿using System.Configuration;
 using System.Data;
 using System.Windows;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace CMS
+namespace CMS.Presentation
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
+    public partial class App : System.Windows.Application
     {
+        private readonly MainWindow _mainWindow;
+
+        public App(MainWindow mainWindow)
+        {
+            _mainWindow = mainWindow;
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            _mainWindow.Show();
+            base.OnStartup(e);
+        }
     }
 
 }
