@@ -8,30 +8,36 @@
         Title="Add Criminal Record"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        Width="826" Height="500">
+        Width="826" Height="600">
     <Grid>
-        <!-- Define Two Columns -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
-            <!-- Left Side -->
             <ColumnDefinition Width="1*" />
-            <!-- Right Side -->
         </Grid.ColumnDefinitions>
 
-        <!-- Left Panel: Criminal Record Details -->
         <StackPanel Grid.Column="0" Margin="20">
             <TextBlock Text="Full Name:" FontWeight="Bold"/>
             <TextBox x:Name="txtFullName" />
 
-            <TextBlock Text="Date of Birth:" FontWeight="Bold" Margin="0,10,0,0"/>
-            <DatePicker x:Name="dpDOB" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Gender:" FontWeight="Bold" Margin="0,10,0,0"/>
-            <ComboBox x:Name="cbGender">
-                <ComboBoxItem Content="Male"/>
-                <ComboBoxItem Content="Female"/>
-                <ComboBoxItem Content="Other"/>
-            </ComboBox>
+                <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                    <TextBlock Text="Date of Birth:" FontWeight="Bold" Margin="0,10,0,0"/>
+                    <DatePicker x:Name="dpDOB" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="Gender:" FontWeight="Bold" Margin="0,10,0,0"/>
+                    <ComboBox x:Name="cbGender">
+                        <ComboBoxItem Content="Male"/>
+                        <ComboBoxItem Content="Female"/>
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
 
             <TextBlock Text="Address:" FontWeight="Bold" Margin="0,10,0,0"/>
             <TextBox x:Name="address" />
@@ -42,13 +48,22 @@
             <TextBlock Text="Offenses:" FontWeight="Bold" Margin="0,10,0,0"/>
             <TextBox x:Name="txtOffenses" Height="100" />
 
+            <TextBlock Text="Notes:" FontWeight="Bold" Margin="0,10,0,0"/>
+            <TextBox x:Name="notes" Height="100" />
+
+            <TextBlock Text="Gender:" FontWeight="Bold" Margin="0,10,0,0"/>
+            <ComboBox x:Name="status">
+                <ComboBoxItem Content="Active"/>
+                <ComboBoxItem Content="Released"/>
+                <ComboBoxItem Content="Under Investigation"/>
+            </ComboBox>
+
             <CheckBox x:Name="chkWatchlist" Content="Add to Watchlist?" Margin="0,10,0,0"/>
 
             <Button Content="Save Record"
                     Background="Green" Foreground="White" Margin="0,15,0,0"/>
         </StackPanel>
 
-        <!-- Right Panel: Picture Upload -->
         <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Border BorderBrush="Black" BorderThickness="1" Padding="5">
                 <Image x:Name="imgCriminalPhoto" Width="150" Height="150" Stretch="Fill"/>
