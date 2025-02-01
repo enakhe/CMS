@@ -8,7 +8,7 @@
         Title="Add Criminal Record"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        Width="826" Height="600">
+        Width="826" Height="650">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
@@ -40,7 +40,7 @@
             </Grid>
 
             <TextBlock Text="Address:" FontWeight="Bold" Margin="0,10,0,0"/>
-            <TextBox x:Name="address" />
+            <TextBox x:Name="txtAddress" />
 
             <TextBlock Text="National ID:" FontWeight="Bold" Margin="0,10,0,0"/>
             <TextBox x:Name="txtNationalID" />
@@ -49,10 +49,10 @@
             <TextBox x:Name="txtOffenses" Height="100" />
 
             <TextBlock Text="Notes:" FontWeight="Bold" Margin="0,10,0,0"/>
-            <TextBox x:Name="notes" Height="100" />
+            <TextBox x:Name="txtNotes" Height="100" />
 
             <TextBlock Text="Gender:" FontWeight="Bold" Margin="0,10,0,0"/>
-            <ComboBox x:Name="status">
+            <ComboBox x:Name="txtStatus">
                 <ComboBoxItem Content="Active"/>
                 <ComboBoxItem Content="Released"/>
                 <ComboBoxItem Content="Under Investigation"/>
@@ -61,7 +61,7 @@
             <CheckBox x:Name="chkWatchlist" Content="Add to Watchlist?" Margin="0,10,0,0"/>
 
             <Button Content="Save Record"
-                    Background="Green" Foreground="White" Margin="0,15,0,0"/>
+                    Background="Green" Foreground="White" Margin="0,15,0,0" Cursor="Hand" Click="AddRecord_Click"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">

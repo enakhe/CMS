@@ -7,6 +7,11 @@ using Microsoft.EntityFrameworkCore;
 #nullable disable
 using Microsoft.Extensions.Configuration;
 using System.IO;
+using CMS.Domain.Interfaces;
+using CMS.Infrastructure.Repositories;
+using CMS.Domain;
+using CMS.Application;
+using CMS.Infrastructure;
 
 namespace CMS.Presentation
 {
@@ -30,10 +35,9 @@ namespace CMS.Presentation
 
         private void ConfigureServices(IServiceCollection services)
         {
-            string connectionString = _configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(connectionString));
-            services.AddSingleton<MainWindow>();
+            //string connectionString = _configuration.GetConnectionString("DefaultConnection");
+            //services.AddDbContext<ApplicationDbContext>(options =>
+            //    options.UseSqlServer(connectionString));
         }
     }
 

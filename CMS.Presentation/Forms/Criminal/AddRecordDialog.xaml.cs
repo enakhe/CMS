@@ -1,4 +1,8 @@
-﻿using System;
+﻿#nullable disable
+
+using CMS.Application.UseCases.Criminal;
+using CMS.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,14 +18,41 @@ using System.Windows.Shapes;
 
 namespace CMS.Presentation.Forms.Criminal
 {
-    /// <summary>
-    /// Interaction logic for AddRecordDialog.xaml
-    /// </summary>
     public partial class AddRecordDialog : Window
     {
-        public AddRecordDialog()
+        private readonly CriminalUsecaces _criminalUsecaces;
+        public AddRecordDialog(CriminalUsecaces criminalUsecaces)
         {
+            _criminalUsecaces = criminalUsecaces;
             InitializeComponent();
+        }
+
+        private void AddRecord_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Domain.Entities.Criminal criminal = new Domain.Entities.Criminal()
+                {
+                    CriminalID = Guid.NewGuid().ToString().Split("-")[0],
+                    FullName = txtFullName.Text.Trim(),
+                    DateOfBirth = (DateTime)dpDOB.SelectedDate,
+                    Gender = cbGender.Text.ToString(),
+                    NationalID = txtNationalID.Text.Trim(),
+                    Address = txtAddress.Text.Trim(),
+                    Offenses = txtOffenses.Text.Trim(),
+                    Status = txtStatus.Text.Trim(),
+                    Notes = txtNotes.Text.Trim(),
+                    WatchlistStatus = (bool)chkWatchlist.IsChecked
+                };
+                _criminalUsecaces.AddCriminalRecord(criminal);
+                this.DialogResult = true;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
         }
     }
 }

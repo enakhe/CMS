@@ -9,8 +9,8 @@ namespace CMS.Domain.Entities
             Pictures = new HashSet<CriminalPictures>();
         }
 
-        public required string Id { get; set; } = Guid.NewGuid().ToString();
-        public required string CriminalID { get; set; }
+        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public string CriminalID { get; set; }
         public string FullName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Gender { get; set; }
@@ -20,7 +20,6 @@ namespace CMS.Domain.Entities
         public string Status { get; set; }
         public string Notes { get; set; }
         public bool WatchlistStatus { get; set; }
-        public string ArrestDates { get; set; }
 
         public ICollection<CriminalPictures> Pictures { get; set; }
     }

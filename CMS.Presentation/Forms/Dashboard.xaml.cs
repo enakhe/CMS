@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using CMS.Presentation.Forms.Home;
 using CMS.Presentation.Forms.Criminal;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CMS.Presentation.Forms
 {
@@ -26,7 +27,12 @@ namespace CMS.Presentation.Forms
 
         private void CriminalButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new CriminalPage());
+            var services = new ServiceCollection();
+            DependencyInjection.ConfigureServices(services);
+            var serviceProvider = services.BuildServiceProvider();
+
+            CriminalPage criminalPage = serviceProvider.GetRequiredService<CriminalPage>();
+            MainFrame.Navigate(criminalPage);
         }
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
