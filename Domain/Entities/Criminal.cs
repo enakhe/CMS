@@ -20,6 +20,7 @@ namespace CMS.Domain.Entities
         public string Status { get; set; }
         public string Notes { get; set; }
         public bool WatchlistStatus { get; set; }
+        public DateTime DateAdded { get; set; } = DateTime.UtcNow;
 
         public ICollection<CriminalPictures> Pictures { get; set; }
     }

@@ -24,16 +24,21 @@
         </StackPanel>
 
         <!-- Table to View Criminal Records -->
-        <DataGrid x:Name="dgCriminals" Grid.Row="1" AutoGenerateColumns="False" Loaded="dgCriminals_Loaded">
+        <DataGrid x:Name="dgCriminals" Grid.Row="1" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding CriminalID}" Width="100"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding FullName}" Width="200"/>
                 <DataGridTextColumn Header="Age" Binding="{Binding DateOfBirth}" Width="100"/>
                 <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" Width="60"/>
-                <DataGridTextColumn Header="NIN" Binding="{Binding Gender}" Width="100"/>
+                <DataGridTextColumn Header="NIN" Binding="{Binding NationalID}" Width="100"/>
                 <DataGridTextColumn Header="WatchList" Binding="{Binding WatchlistStatus}" Width="100"/>
-                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="150"/>
+                <DataGridTextColumn Header="Date Added" Binding="{Binding DateAdded}" Width="150"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <Grid x:Name="LoaderGrid" Background="Gray" Opacity="0.5" Visibility="Collapsed">
+            <ProgressBar IsIndeterminate="True" Width="200" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
     </Grid>
 </Page>

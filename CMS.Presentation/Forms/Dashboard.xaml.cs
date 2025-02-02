@@ -19,20 +19,43 @@ namespace CMS.Presentation.Forms
 {
     public partial class Dashboard : Window
     {
+        private bool _isLoading;
         public Dashboard()
         {
             InitializeComponent();
             MainFrame.Navigate(new IndexPage());
         }
 
+        public bool IsLoading
+        {
+            get => _isLoading;
+            set
+            {
+                _isLoading = value;
+                LoaderGrid.Visibility = value ? Visibility.Visible : Visibility.Collapsed;
+            }
+        }
+
         private void CriminalButton_Click(object sender, RoutedEventArgs e)
         {
-            var services = new ServiceCollection();
-            DependencyInjection.ConfigureServices(services);
-            var serviceProvider = services.BuildServiceProvider();
+            try
+            {
+                IsLoading = true;
+                var services = new ServiceCollection();
+                DependencyInjection.ConfigureServices(services);
+                var serviceProvider = services.BuildServiceProvider();
 
-            CriminalPage criminalPage = serviceProvider.GetRequiredService<CriminalPage>();
-            MainFrame.Navigate(criminalPage);
+                CriminalPage criminalPage = serviceProvider.GetRequiredService<CriminalPage>();
+                MainFrame.Navigate(criminalPage);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                IsLoading = false;
+            }
         }
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)

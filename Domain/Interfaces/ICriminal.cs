@@ -11,5 +11,6 @@ namespace CMS.Domain.Interfaces
     {
         void AddCrimnalRecord(Criminal criminal);
         Task<List<Criminal>> GetAllCriminalRecords();
+        void AddCriminalImages(CriminalPictures criminalPictures);
     }
 }

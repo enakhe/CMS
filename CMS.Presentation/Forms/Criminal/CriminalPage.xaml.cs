@@ -20,24 +20,38 @@ namespace CMS.Presentation.Forms.Criminal
     public partial class CriminalPage : Page
     {
         private readonly CriminalUsecaces _criminalUsecaces;
+        private bool _isLoading;
         public CriminalPage(CriminalUsecaces criminalUsecaces)
         {
             _criminalUsecaces = criminalUsecaces;
             InitializeComponent();
         }
 
-        private async Task LoadDataAsync()
+        public bool IsLoading
         {
-            List<Domain.Entities.Criminal> allCriminal = await _criminalUsecaces.GetAllCriminalRecords();
-            if(allCriminal != null)
+            get => _isLoading;
+            set
             {
-                dgCriminals.ItemsSource = allCriminal;
+                _isLoading = value;
+                LoaderGrid.Visibility = value ? Visibility.Visible : Visibility.Collapsed;
             }
         }
 
-        private async void dgCriminals_Loaded(object sender, RoutedEventArgs e)
+        private async Task LoadDataAsync()
         {
-            //await LoadDataAsync();
+            try
+            {
+                IsLoading = true;
+                List<Domain.Entities.Criminal> allCriminal = await _criminalUsecaces.GetAllCriminalRecords();
+                if (allCriminal != null)
+                {
+                    dgCriminals.ItemsSource = allCriminal;
+                }
+            }
+            finally
+            {
+                IsLoading = false;
+            }
         }
 
         private async void AddButton_Click(object sender, RoutedEventArgs e)

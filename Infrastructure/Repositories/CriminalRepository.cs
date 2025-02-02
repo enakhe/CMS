@@ -42,5 +42,18 @@ namespace CMS.Infrastructure.Repositories
                 throw new Exception(ex.Message);
             }
         }
+
+        public async void AddCriminalImages(CriminalPictures criminalPictures)
+        {
+            try
+            {
+                await _db.CriminalPictures.AddAsync(criminalPictures);
+                await _db.SaveChangesAsync();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

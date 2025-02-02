@@ -25,16 +25,16 @@
                     HorizontalAlignment="Left" Padding="10" Width="180" Margin="10,5" FontSize="18" Click="HomeButton_Click"/>
             <Button Content="Criminal" Background="Transparent" Foreground="White" BorderThickness="0"
                     HorizontalAlignment="Left" Padding="10" Width="180" Margin="10,5" FontSize="18" Click="CriminalButton_Click" />
-            <Button Content="Reports" Background="Transparent" Foreground="White" BorderThickness="0"
-                    HorizontalAlignment="Left" Padding="10" Width="180" Margin="10,5" FontSize="18"/>
-            <Button Content="Settings" Background="Transparent" Foreground="White" BorderThickness="0"
-                    HorizontalAlignment="Left" Padding="10" Width="180" Margin="10,5" FontSize="18"/>
         </StackPanel>
 
         <!-- Header -->
         <Grid Grid.Row="0" Grid.Column="1" Background="White">
             <TextBlock Text="Welcome to Dashboard" FontSize="20" FontWeight="Bold"
                        VerticalAlignment="Center" Margin="20"/>
+        </Grid>
+        
+        <Grid x:Name="LoaderGrid" Background="Gray" Opacity="0.5" Visibility="Collapsed">
+            <ProgressBar IsIndeterminate="True" Width="200" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Grid>
 
         <!-- Main Content -->
