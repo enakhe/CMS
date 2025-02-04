@@ -52,8 +52,13 @@ namespace CMS.Presentation.Forms.Criminal
                 criminal.Age = DateTime.Now.Year - criminal.DateOfBirth.Year;
                 _criminalUsecaces.AddCriminalRecord(criminal);
 
-                this.DialogResult = true;
                 MessageBox.Show("Criminal Record Saved Successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                AddPicturesDialog addPicturesDialog = new AddPicturesDialog(criminal.Id, _criminalUsecaces);
+                if(addPicturesDialog.ShowDialog() == true)
+                {
+                    this.DialogResult = true;
+                }
+
             }
             catch (Exception ex)
             {
