@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Forms\Criminal\AddPicturesDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Forms\Criminal\AddRecordDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -21,6 +24,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Forms\Criminal\AddPicturesDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Forms\Criminal\AddRecordDialog.xaml">
       <SubType>Designer</SubType>
     </Page>

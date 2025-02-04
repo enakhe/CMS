@@ -28,7 +28,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding CriminalID}" Width="100"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding FullName}" Width="200"/>
-                <DataGridTextColumn Header="Age" Binding="{Binding DateOfBirth}" Width="100"/>
+                <DataGridTextColumn Header="Age" Binding="{Binding Age}" Width="50"/>
                 <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" Width="60"/>
                 <DataGridTextColumn Header="NIN" Binding="{Binding NationalID}" Width="100"/>
                 <DataGridTextColumn Header="WatchList" Binding="{Binding WatchlistStatus}" Width="100"/>

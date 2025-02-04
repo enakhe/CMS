@@ -27,7 +27,7 @@ namespace CMS.Infrastructure.Repositories
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception("An error occured when adding the criminal information. " +  ex.Message);
             }
         }
 
@@ -39,21 +39,21 @@ namespace CMS.Infrastructure.Repositories
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception("An error occured when getting the list of criminals. " + ex.Message);
             }
         }
 
         public async void AddCriminalImages(CriminalPictures criminalPictures)
         {
-            try
-            {
+            //try
+            //{
                 await _db.CriminalPictures.AddAsync(criminalPictures);
                 await _db.SaveChangesAsync();
-            }
-            catch(Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            //}
+            //catch(Exception ex)
+            //{
+            //    throw new Exception("An error occured when adding the criminal images. " + ex.Message);
+            //}
         }
     }
 }

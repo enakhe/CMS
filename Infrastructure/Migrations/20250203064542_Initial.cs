@@ -19,6 +19,7 @@ namespace CMS.Infrastructure.Migrations
                     CriminalID = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Age = table.Column<int>(type: "int", nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     NationalID = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -26,7 +27,7 @@ namespace CMS.Infrastructure.Migrations
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Notes = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     WatchlistStatus = table.Column<bool>(type: "bit", nullable: false),
-                    ArrestDates = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    DateAdded = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -58,17 +59,17 @@ namespace CMS.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CriminalId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     Mugshot = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     AdditionalPictures = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CriminalID = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CriminalPictures", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CriminalPictures_Criminals_CriminalId",
-                        column: x => x.CriminalId,
+                        name: "FK_CriminalPictures_Criminals_CriminalID",
+                        column: x => x.CriminalID,
                         principalTable: "Criminals",
                         principalColumn: "Id");
                 });
@@ -76,12 +77,14 @@ namespace CMS.Infrastructure.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_CriminalBiometrics_CriminalId",
                 table: "CriminalBiometrics",
-                column: "CriminalId");
+                column: "CriminalId",
+                unique: true,
+                filter: "[CriminalId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CriminalPictures_CriminalId",
+                name: "IX_CriminalPictures_CriminalID",
                 table: "CriminalPictures",
-                column: "CriminalId");
+                column: "CriminalID");
         }
 
         /// <inheritdoc />

@@ -30,6 +30,9 @@ namespace CMS.Infrastructure.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
                     b.Property<string>("CriminalID")
                         .HasColumnType("nvarchar(max)");
 
@@ -84,7 +87,9 @@ namespace CMS.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CriminalId");
+                    b.HasIndex("CriminalId")
+                        .IsUnique()
+                        .HasFilter("[CriminalId] IS NOT NULL");
 
                     b.ToTable("CriminalBiometrics");
                 });
@@ -97,7 +102,7 @@ namespace CMS.Infrastructure.Migrations
                     b.PrimitiveCollection<string>("AdditionalPictures")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CriminalId")
+                    b.Property<string>("CriminalID")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("DateCreated")
@@ -108,7 +113,7 @@ namespace CMS.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CriminalId");
+                    b.HasIndex("CriminalID");
 
                     b.ToTable("CriminalPictures");
                 });
@@ -116,8 +121,8 @@ namespace CMS.Infrastructure.Migrations
             modelBuilder.Entity("CMS.Domain.Entities.CriminalBiometrics", b =>
                 {
                     b.HasOne("CMS.Domain.Entities.Criminal", "Criminal")
-                        .WithMany()
-                        .HasForeignKey("CriminalId");
+                        .WithOne("Biometrics")
+                        .HasForeignKey("CMS.Domain.Entities.CriminalBiometrics", "CriminalId");
 
                     b.Navigation("Criminal");
                 });
@@ -126,13 +131,15 @@ namespace CMS.Infrastructure.Migrations
                 {
                     b.HasOne("CMS.Domain.Entities.Criminal", "Criminal")
                         .WithMany("Pictures")
-                        .HasForeignKey("CriminalId");
+                        .HasForeignKey("CriminalID");
 
                     b.Navigation("Criminal");
                 });
 
             modelBuilder.Entity("CMS.Domain.Entities.Criminal", b =>
                 {
+                    b.Navigation("Biometrics");
+
                     b.Navigation("Pictures");
                 });
 #pragma warning restore 612, 618
