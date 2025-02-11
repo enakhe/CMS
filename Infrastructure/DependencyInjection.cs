@@ -1,6 +1,7 @@
 ﻿using CMS.Domain.Interfaces;
 using CMS.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;

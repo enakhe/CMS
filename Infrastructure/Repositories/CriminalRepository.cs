@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -45,15 +46,28 @@ namespace CMS.Infrastructure.Repositories
 
         public async void AddCriminalImages(CriminalPictures criminalPictures)
         {
-            //try
-            //{
+            try
+            {
                 await _db.CriminalPictures.AddAsync(criminalPictures);
                 await _db.SaveChangesAsync();
-            //}
-            //catch(Exception ex)
-            //{
-            //    throw new Exception("An error occured when adding the criminal images. " + ex.Message);
-            //}
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occured when adding the criminal images. " + ex.Message);
+            }
+        }
+
+        public async Task<List<CriminalPictures>> GetCriminalImages()
+        {
+            try
+            {
+                var criminalPictures = await _db.CriminalPictures.ToListAsync();
+                return criminalPictures;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("An error occured when getting criminal images. " + ex.Message);
+            }
         }
     }
 }

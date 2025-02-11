@@ -21,10 +21,12 @@
         <StackPanel Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Background="#333" Width="200">
             <TextBlock Text="DASHBOARD" Foreground="White" FontSize="18" FontWeight="Bold"
                        Margin="20,30,0,20"/>
-            <Button Content="Home" Background="Transparent" Foreground="White" BorderThickness="0"
+            <Button Content="Home" Cursor="Hand" Background="Transparent" Foreground="White" BorderThickness="0"
                     HorizontalAlignment="Left" Padding="10" Width="180" Margin="10,5" FontSize="18" Click="HomeButton_Click"/>
-            <Button Content="Criminal" Background="Transparent" Foreground="White" BorderThickness="0"
+            <Button Content="Criminal" Cursor="Hand" Background="Transparent" Foreground="White" BorderThickness="0"
                     HorizontalAlignment="Left" Padding="10" Width="180" Margin="10,5" FontSize="18" Click="CriminalButton_Click" />
+            <Button Content="Face Detector" Cursor="Hand" Background="Transparent" Foreground="White" BorderThickness="0"
+        HorizontalAlignment="Left" Padding="10" Width="180" Margin="10,5" FontSize="18" Click="FaceDetectorButton_Click" />
         </StackPanel>
 
         <!-- Header -->
@@ -32,13 +34,12 @@
             <TextBlock Text="Welcome to Dashboard" FontSize="20" FontWeight="Bold"
                        VerticalAlignment="Center" Margin="20"/>
         </Grid>
-        
-        <Grid x:Name="LoaderGrid" Background="Gray" Opacity="0.5" Visibility="Collapsed">
-            <ProgressBar IsIndeterminate="True" Width="200" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        </Grid>
 
         <!-- Main Content -->
         <Grid Grid.Row="1" Grid.Column="1" Margin="20">
+            <Grid x:Name="LoaderGrid" Background="Gray" Opacity="0.5" Visibility="Collapsed">
+                <ProgressBar IsIndeterminate="True" Width="200" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
             <Frame x:Name="MainFrame" Margin="10,10,10,10" NavigationUIVisibility="Hidden"/>
         </Grid>
     </Grid>

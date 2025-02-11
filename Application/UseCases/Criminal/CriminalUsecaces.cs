@@ -26,5 +26,10 @@ namespace CMS.Application.UseCases.Criminal
         {
             _criminalRepository.AddCriminalImages(criminalPictures);
         }
+
+        public Task<List<CriminalPictures>> GetCriminalImages()
+        {
+            return _criminalRepository.GetCriminalImages();
+        }
     }
 }
