@@ -1,13 +1,6 @@
-﻿using CMS.Presentation.Forms.Criminal;
-using CMS.Presentation.Forms.FaceDetector;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace CMS.Presentation
+namespace ESMART.Presentation
 {
     public static class PresentationDependencyInjection
     {
@@ -20,8 +13,6 @@ namespace CMS.Presentation
 
         private static IServiceCollection AddPages(this IServiceCollection services)
         {
-            services.AddScoped<CriminalPage>();
-            services.AddScoped<FaceDetectorPage>();
             return services;
         }
     }

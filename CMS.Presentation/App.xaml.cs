@@ -1,19 +1,14 @@
-﻿using CMS.Infrastructure.Data;
-using Microsoft.Extensions.DependencyInjection;
-using System.Configuration;
-using System.Data;
-using System.Windows;
-using Microsoft.EntityFrameworkCore;
-#nullable disable
+﻿using ESMART.Infrastructure.Data;
+using ESMART.Infrastructure.Identity;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System.Windows;
 using System.IO;
-using CMS.Domain.Interfaces;
-using CMS.Infrastructure.Repositories;
-using CMS.Domain;
-using CMS.Application;
-using CMS.Infrastructure;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-namespace CMS.Presentation
+namespace ESMART.Presentation
 {
     public partial class App : System.Windows.Application
     {
@@ -29,15 +24,19 @@ namespace CMS.Presentation
             _configuration = builder.Build();
 
             var serviceCollection = new ServiceCollection();
-            ConfigureServices(serviceCollection);
             _serviceProvider = serviceCollection.BuildServiceProvider();
         }
 
-        private void ConfigureServices(IServiceCollection services)
+        protected override void OnStartup(StartupEventArgs e)
         {
-            //string connectionString = _configuration.GetConnectionString("DefaultConnection");
-            //services.AddDbContext<ApplicationDbContext>(options =>
-            //    options.UseSqlServer(connectionString));
+            base.OnStartup(e);
+
+            var services = new ServiceCollection();
+            DependencyInjection.ConfigureServices(services);
+            var serviceProvider = services.BuildServiceProvider();
+
+            MainWindow mainWindow = serviceProvider.GetRequiredService<MainWindow>();
+            mainWindow.Show();
         }
     }
 

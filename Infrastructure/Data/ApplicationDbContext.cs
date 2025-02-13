@@ -1,24 +1,14 @@
-﻿using CMS.Domain.Entities;
-using CMS.Infrastructure.Data.Configurations;
+﻿using ESMART.Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace CMS.Infrastructure.Data
+namespace ESMART.Infrastructure.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) 
         {
             
-        }
-
-        public DbSet<Criminal> Criminals { get; set; }
-        public DbSet<CriminalPictures> CriminalPictures { get; set; }
-        public DbSet<CriminalBiometrics> CriminalBiometrics { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.ApplyConfiguration(new CriminalConfiguration());
         }
     }
 }

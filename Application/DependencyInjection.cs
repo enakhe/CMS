@@ -1,18 +1,13 @@
-﻿using CMS.Application.UseCases.Criminal;
+﻿using ESMART.Application.UseCases;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CMS.Application
+namespace ESMART.Application
 {
     public static class ApplicationDependencyInjection
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
-            services.AddScoped<CriminalUsecaces>();
+            services.AddScoped<IdentityUseCases>();
             return services;
         }
     }

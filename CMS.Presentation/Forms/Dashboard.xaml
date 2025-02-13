@@ -1,9 +1,9 @@
-﻿<Window x:Class="CMS.Presentation.Forms.Dashboard"
+﻿<Window x:Class="ESMART.Presentation.Forms.Dashboard"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CMS.Presentation.Forms"
+        xmlns:local="clr-namespace:ESMART.Presentation.Forms"
         mc:Ignorable="d"
         Title="Criminal Record Management System | Dashboard" Height="800" Width="1300"
         WindowStartupLocation="CenterScreen" Background="#F5F5F5">
@@ -22,11 +22,7 @@
             <TextBlock Text="DASHBOARD" Foreground="White" FontSize="18" FontWeight="Bold"
                        Margin="20,30,0,20"/>
             <Button Content="Home" Cursor="Hand" Background="Transparent" Foreground="White" BorderThickness="0"
-                    HorizontalAlignment="Left" Padding="10" Width="180" Margin="10,5" FontSize="18" Click="HomeButton_Click"/>
-            <Button Content="Criminal" Cursor="Hand" Background="Transparent" Foreground="White" BorderThickness="0"
-                    HorizontalAlignment="Left" Padding="10" Width="180" Margin="10,5" FontSize="18" Click="CriminalButton_Click" />
-            <Button Content="Face Detector" Cursor="Hand" Background="Transparent" Foreground="White" BorderThickness="0"
-        HorizontalAlignment="Left" Padding="10" Width="180" Margin="10,5" FontSize="18" Click="FaceDetectorButton_Click" />
+                    HorizontalAlignment="Left" Padding="10" Width="180" Margin="10,5" FontSize="18" Click="HomeButton_Click" HorizontalContentAlignment="Left"/>
         </StackPanel>
 
         <!-- Header -->

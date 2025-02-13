@@ -1,20 +1,16 @@
-﻿using CMS.Domain.Interfaces;
-using CMS.Infrastructure.Repositories;
+﻿using ESMART.Domain.Interfaces;
+using ESMART.Infrastructure.Data;
+using ESMART.Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CMS.Infrastructure
+namespace ESMART.Infrastructure
 {
     public static class InfrastructureDependencyInjection
     {
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services)
         {
-
             services.AddRepository();
             services.AddInterface();
             return services;
@@ -22,13 +18,13 @@ namespace CMS.Infrastructure
 
         private static IServiceCollection AddRepository(this IServiceCollection services)
         {
-            services.AddScoped<CriminalRepository>();
+            services.AddScoped<IdentityService>();
             return services;
         }
 
         private static IServiceCollection AddInterface(this IServiceCollection services)
         {
-            services.AddScoped<ICriminal, CriminalRepository>();
+            services.AddTransient<IIdentityService, IdentityService>();
             return services;
         }
     }

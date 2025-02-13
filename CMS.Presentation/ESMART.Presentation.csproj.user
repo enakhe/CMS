@@ -10,19 +10,7 @@
     <Compile Update="Components\RoundedButton.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Forms\Criminal\AddPicturesDialog.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Forms\Criminal\AddRecordDialog.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Forms\Criminal\CriminalPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Forms\Dashboard.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Forms\FaceDetector\FaceDetectorPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Forms\Home\IndexPage.xaml.cs">
@@ -33,19 +21,7 @@
     <Page Update="Components\RoundedButton.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Forms\Criminal\AddPicturesDialog.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Forms\Criminal\AddRecordDialog.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Forms\Criminal\CriminalPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Forms\Dashboard.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Forms\FaceDetector\FaceDetectorPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Forms\Home\IndexPage.xaml">

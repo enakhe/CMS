@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35521.163
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Domain", "..\Domain\CMS.Domain.csproj", "{91CBD039-A6AC-4261-A75E-21865C95EAF8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESMART.Domain", "..\Domain\ESMART.Domain.csproj", "{91CBD039-A6AC-4261-A75E-21865C95EAF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Application", "..\Application\CMS.Application.csproj", "{3BDB46BD-ED68-4F0E-A675-97F5F6EAEFC5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESMART.Application", "..\Application\ESMART.Application.csproj", "{3BDB46BD-ED68-4F0E-A675-97F5F6EAEFC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Infrastructure", "..\Infrastructure\CMS.Infrastructure.csproj", "{9A9EF9EC-71B8-4539-A6C2-E3D7B6F223CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESMART.Infrastructure", "..\Infrastructure\ESMART.Infrastructure.csproj", "{9A9EF9EC-71B8-4539-A6C2-E3D7B6F223CB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{CB071E36-3EAD-494A-B8B2-C889E969FCBB}"
 	ProjectSection(SolutionItems) = preProject
@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{23E77E8E-B36D-445B-9E12-29CCD8F277EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Presentation", "..\CMS.Presentation\CMS.Presentation.csproj", "{BAE4405E-C543-4A6C-8BC9-7C3CF1BEA4DB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESMART.Presentation", "..\CMS.Presentation\ESMART.Presentation.csproj", "{BAE4405E-C543-4A6C-8BC9-7C3CF1BEA4DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
