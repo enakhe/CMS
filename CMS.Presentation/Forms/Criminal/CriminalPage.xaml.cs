@@ -63,7 +63,12 @@ namespace CMS.Presentation.Forms.Criminal
             }
         }
 
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        //private async void Page_Loaded(object sender, RoutedEventArgs e)
+        //{
+            
+        //}
+
+        private async void dgCriminals_Loaded(object sender, RoutedEventArgs e)
         {
             await LoadDataAsync();
         }
